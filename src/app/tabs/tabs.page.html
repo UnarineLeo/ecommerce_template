@@ -1,23 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button href="/tabs/home">
+          <ion-icon name="school-outline" style="font-size: 24px; margin-left: 10px;" href="/tabs/home"></ion-icon>
+          <ion-title style="font-size: 20px; font-weight: bold;">UniApply</ion-title>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" href="/tabs/home">Home</ion-button>
+      <ion-button fill="clear" href="/tabs/universities">Universities</ion-button>
+      <ion-button fill="clear" href="/tabs/about">About us</ion-button>
+      
+      <ion-button>
+        <ion-icon slot="start" name="log-in-outline"></ion-icon>
+        Log In
+      </ion-button>
+      <ion-button color="primary" shape="round" href="/tabs/profile">Profile</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home" href="/tabs/home">
-      <ion-icon aria-hidden="true" name="home"></ion-icon>
-      <ion-label>Home</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="about" href="/tabs/about">
-      <ion-icon aria-hidden="true" name="alert-circle-outline"></ion-icon>
-      <ion-label>About Us</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="universities" href="/tabs/universities">
-      <ion-icon aria-hidden="true" name="planet-outline"></ion-icon>
-      <ion-label>Universities</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="profile" href="/tabs/profile">
-      <ion-icon aria-hidden="true" name="person-outline"></ion-icon>
-      <ion-label>Profile</ion-label>
-    </ion-tab-button>
+  <ion-tab-bar slot="bottom" style="display: none;">
+    <ion-tab-button tab="home"></ion-tab-button>
+    <ion-tab-button tab="universities"></ion-tab-button>
+    <ion-tab-button tab="about"></ion-tab-button>
+    <ion-tab-button tab="profile"></ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
