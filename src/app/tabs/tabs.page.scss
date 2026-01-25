@@ -1,1 +1,196 @@
+ion-toolbar {
+  --background: white;
+  --color: #1e3a5f;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --min-height: 64px;
+}
 
+// Brand/Logo
+.brand-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  text-transform: none;
+  
+  .brand-icon {
+    font-size: 28px;
+    margin-right: 8px;
+    color: #1e40af;
+  }
+  
+  .brand-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e3a5f;
+    letter-spacing: -0.02em;
+  }
+}
+
+// Desktop Navigation
+.desktop-nav {
+  display: flex;
+  gap: 8px;
+
+  ion-button {
+    --color: #374151;
+    --color-hover: #1e40af;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-transform: none;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      --color: #1e40af;
+    }
+  }
+
+  .login-btn {
+    --color: #1e40af;
+    --background-hover: rgba(30, 64, 175, 0.05);
+    margin-left: 8px;
+  }
+
+  .profile-btn {
+    --background: #1e40af;
+    --background-hover: #1e3a8a;
+    margin-left: 4px;
+    font-weight: 600;
+  }
+}
+
+// Mobile Navigation
+.mobile-nav {
+  display: none;
+
+  ion-button {
+    --color: #1e3a5f;
+    font-size: 28px;
+  }
+}
+
+// Mobile Menu Dropdown
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  z-index: 1000;
+
+  &.open {
+    max-height: 400px;
+    opacity: 1;
+  }
+
+  ion-list {
+    padding: 8px 0;
+  }
+
+  ion-item {
+    --padding-start: 20px;
+    --inner-padding-end: 20px;
+    --min-height: 52px;
+    font-size: 1rem;
+    
+    ion-icon {
+      font-size: 22px;
+      margin-right: 16px;
+      color: #6b7280;
+    }
+
+    ion-label {
+      font-weight: 500;
+      color: #374151;
+    }
+
+    &:hover {
+      --background: #f3f4f6;
+    }
+
+    &.menu-divider {
+      border-top: 1px solid #e5e7eb;
+      margin-top: 8px;
+      padding-top: 8px;
+    }
+  }
+}
+
+// Responsive Breakpoints
+@media (max-width: 992px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
+
+  .brand-button {
+    .brand-icon {
+      font-size: 24px;
+      margin-right: 6px;
+    }
+    
+    .brand-text {
+      font-size: 18px;
+    }
+  }
+}
+
+// Tablet adjustments
+@media (max-width: 768px) and (min-width: 481px) {
+  ion-toolbar {
+    --padding-start: 12px;
+    --padding-end: 12px;
+  }
+}
+
+// Mobile adjustments
+@media (max-width: 480px) {
+  ion-toolbar {
+    --padding-start: 8px;
+    --padding-end: 8px;
+    --min-height: 56px;
+  }
+
+  .brand-button {
+    .brand-icon {
+      font-size: 22px;
+      margin-right: 4px;
+      margin-left: 0 !important;
+    }
+    
+    .brand-text {
+      font-size: 16px;
+    }
+  }
+
+  .mobile-menu {
+    ion-item {
+      --padding-start: 16px;
+      --min-height: 48px;
+      font-size: 0.95rem;
+
+      ion-icon {
+        font-size: 20px;
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+// Smooth transitions
+ion-button {
+  transition: all 0.2s ease;
+}
+
+// Fix for potential layout issues
+ion-header {
+  position: relative;
+}

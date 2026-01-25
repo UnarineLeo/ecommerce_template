@@ -5,9 +5,133 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Your Gateway to<br>
+        <span class="highlight">South African Universities</span>
+      </h1>
+      <p class="hero-subtitle">
+        Apply to multiple universities across South Africa from one central platform.<br>
+        Simplify your journey to higher education with UniApply.
+      </p>
+      
+      <div class="hero-buttons">
+        <ion-button size="large" class="start-btn" shape="round" (click)="startApplication()">
+          Start Your Application
+          <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        </ion-button>
+        <ion-button size="large" fill="outline" class="explore-btn" shape="round" (click)="exploreUniversities()">
+          Explore Universities
+          <ion-icon slot="end" name="search"></ion-icon>
+        </ion-button>
+      </div>
+
+      <!-- Animated Stats Section -->
+      <div class="stats-section">
+        <div class="stat-item">
+          <h2 class="stat-number">{{ currentUniversities }}+</h2>
+          <p class="stat-label">Universities</p>
+        </div>
+        <div class="stat-item">
+          <h2 class="stat-number">{{ currentStudents }}k+</h2>
+          <p class="stat-label">Students</p>
+        </div>
+        <div class="stat-item">
+          <h2 class="stat-number">{{ currentSuccessRate }}%</h2>
+          <p class="stat-label">Success Rate</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add other sections here -->
+   <!-- Find Your Perfect University Section -->
+  <div class="search-section">
+    <div class="search-container">
+      <h2 class="section-title">Find Your Perfect University</h2>
+      <p class="section-subtitle">
+        Search through South Africa's top universities by program, location, or requirements.
+      </p>
+
+      <!-- Search Card -->
+      <ion-card class="search-card">
+        <ion-card-content>
+          <!-- Search Input Row -->
+          <div class="search-row">
+            <div class="search-input-wrapper">
+              <ion-icon name="search-outline" class="search-icon"></ion-icon>
+              <input 
+                type="text" 
+                class="search-input"
+                placeholder="Search universities, programs, or locations..."
+                [(ngModel)]="searchQuery"
+                (keyup.enter)="searchUniversities()"
+              />
+            </div>
+
+            <div class="select-wrapper">
+              <ion-select 
+                placeholder="Study Field" 
+                [(ngModel)]="selectedField"
+                interface="popover"
+                class="custom-select">
+                <ion-select-option 
+                  *ngFor="let field of studyFields" 
+                  [value]="field.value">
+                  {{ field.label }}
+                </ion-select-option>
+              </ion-select>
+            </div>
+
+            <div class="select-wrapper">
+              <ion-select 
+                placeholder="Province" 
+                [(ngModel)]="selectedProvince"
+                interface="popover"
+                class="custom-select">
+                <ion-select-option 
+                  *ngFor="let province of provinces" 
+                  [value]="province.value">
+                  {{ province.label }}
+                </ion-select-option>
+              </ion-select>
+            </div>
+
+          </div>
+
+          <!-- Search Button Row -->
+          <div class="button-row">
+            <ion-button 
+              expand="block" 
+              class="search-button"
+              (click)="searchUniversities()">
+              <ion-icon slot="start" name="search"></ion-icon>
+              Search Universities
+            </ion-button>
+
+            <ion-button 
+              fill="clear" 
+              class="filter-button"
+              (click)="showAdvancedFilters()">
+              <ion-icon slot="start" name="funnel-outline"></ion-icon>
+              Advanced Filters
+            </ion-button>
+
+            <ion-button 
+              fill="clear" 
+              class="clear-button"
+              (click)="clearFilters()"
+              *ngIf="searchQuery || selectedField || selectedProvince"
+              style="margin: 0 auto;">
+              <ion-icon slot="start" name="close-circle-outline"></ion-icon>
+              Clear
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>
