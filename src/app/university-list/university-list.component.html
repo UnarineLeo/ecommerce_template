@@ -1,0 +1,55 @@
+<div class="cards-grid">
+  <ion-card class="university-card" @for(university of universityArray;)>
+    <img [alt]="university.name" [src]="university.image" />
+    
+    <div class="card-overlay">
+      <div class="overlay-content">
+        <h3 class="university-name">{{ university.name }}</h3>
+        <div class="location">
+          <ion-icon name="location-outline"></ion-icon>
+          <span>{{ university.suburb }}, {{ university.province }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <ion-card-header>
+      <div class="card-stats">
+        <div class="ranking">
+          <span class="star">⭐</span>
+          <span>#{{ university.rating }} Ranking</span>
+        </div>
+        <div class="students">
+          <ion-icon name="people-outline"></ion-icon>
+          <span>{{ university.students }}</span>
+        </div>
+      </div>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="programs-section">
+        <p class="section-label">Popular Programs:</p>
+        <div class="program-tags">
+          <ion-chip color="success" @for(program of university.popularPrograms.slice(0, 3))>
+            <ion-label>{{ program }}</ion-label>
+          </ion-chip>
+          <ion-chip color="light" @if(university.fields.length > 0)>
+            <ion-label>+{{ university.fields.length }} more</ion-label>
+          </ion-chip>
+        </div>
+      </div>
+      
+      <p class="deadline">
+        Application Deadline: <span class="deadline-date">{{ university.closingDate }}</span>
+      </p>
+      
+      <div class="card-actions">
+        <ion-button fill="outline" size="default" (click)="onLearnMore(university.name)">
+          Learn More
+        </ion-button>
+        <ion-button size="default" (click)="onApplyNow(university.link)">
+          Apply Now
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>
