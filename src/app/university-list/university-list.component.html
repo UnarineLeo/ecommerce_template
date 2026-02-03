@@ -1,7 +1,7 @@
 <div class="cards-grid">
-  <ion-card class="university-card" @for(university of universityArray;)>
+  @for(university of universityArray;  track university.name){
+  <ion-card class="university-card" >
     <img [alt]="university.name" [src]="university.image" />
-    
     <div class="card-overlay">
       <div class="overlay-content">
         <h3 class="university-name">{{ university.name }}</h3>
@@ -28,14 +28,18 @@
     <ion-card-content>
       <div class="programs-section">
         <p class="section-label">Popular Programs:</p>
-        <div class="program-tags">
-          <ion-chip color="success" @for(program of university.popularPrograms.slice(0, 3))>
+        <!-- <div class="program-tags">
+          @for(program of university.fields.slice(0, 3); track university.fields){
+          <ion-chip color="success" >
             <ion-label>{{ program }}</ion-label>
           </ion-chip>
-          <ion-chip color="light" @if(university.fields.length > 0)>
+          }
+          @if(university.fields.length > 0){
+          <ion-chip color="light" >
             <ion-label>+{{ university.fields.length }} more</ion-label>
           </ion-chip>
-        </div>
+          }
+        </div> -->
       </div>
       
       <p class="deadline">
@@ -51,5 +55,6 @@
         </ion-button>
       </div>
     </ion-card-content>
-  </ion-card>
+  </ion-card> 
+  }
 </div>

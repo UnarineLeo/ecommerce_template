@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonCardContent, IonButton, IonSelect, 
- IonSelectOption } from '@ionic/angular/standalone';
+ IonSelectOption, IonCardSubtitle, IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { UniversityListComponent } from '../university-list/university-list.component';
@@ -13,7 +13,7 @@ import { UniversityListComponent } from '../university-list/university-list.comp
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, CommonModule, FormsModule, IonIcon, 
-    IonButton, IonSelect, IonSelectOption, UniversityListComponent],
+    IonButton, IonSelect, IonSelectOption, IonCardSubtitle, IonCardTitle, IonCardHeader, UniversityListComponent],
 })
 export class HomePage implements OnInit, OnDestroy {
   // Counter properties
@@ -168,5 +168,38 @@ export class HomePage implements OnInit, OnDestroy {
     this.selectedField = '';
     this.selectedProvince = '';
   }
+
+  moreinfo = [
+    {
+      icon: 'heart',
+      title: 'Centralized Applications',
+      description: 'Learn more about Unipply and our mission to connect students with universities.'
+    },
+    {
+      icon: 'help-circle',
+      title: 'Smart University Matching',
+      description: 'Get assistance with your university applications and other inquiries.'    
+    },
+    {
+      icon: 'document-text',
+      title: 'Real-time Tracking',
+      description: 'Access guides, articles, and tools to help you navigate the university application process.'
+    },
+    { 
+      icon: 'megaphone',
+      title: 'Document Verification',
+      description: 'Stay updated with the latest news and announcements from Unipply.'
+    },
+    {
+      icon: 'people',
+      title: 'Expert Guidance',
+      description: 'Join our community of students and share your experiences and tips.'
+    },
+    {
+      icon: 'settings',
+      title: 'Secure & Trusted',
+      description: 'Manage your account settings and preferences.'
+    }
+  ]
 
 }

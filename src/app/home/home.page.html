@@ -144,7 +144,7 @@
     </div>
   </div>
 
-  <!-- <app-university-list></app-university-list> -->
+  <app-university-list></app-university-list>
 
   <div class="search-section">
     <div class="search-container">
@@ -152,6 +152,19 @@
       <p class="section-subtitle">
         We've revolutionized the university application process in South Africa, making it easier and more efficient for students to pursue their dreams.      </p>
     </div>
+  </div>
+
+  <div class="cards-grid">
+    @for(info of moreinfo; track info.title){
+      <ion-card class="university-card" style="border-radius: 2px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <ion-card-header style="text-align: center;">
+          <ion-icon [name]="info.icon" style="font-size: 2rem; margin-bottom: 0.5rem;"></ion-icon>
+          <ion-card-title>{{info.title}}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content style="text-align: center;"> {{info.description}} </ion-card-content>
+      </ion-card>
+    }
   </div>
 
 </ion-content>
