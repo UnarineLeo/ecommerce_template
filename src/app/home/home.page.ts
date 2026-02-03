@@ -6,6 +6,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonCardC
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { UniversityListComponent } from '../university-list/university-list.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ import { UniversityListComponent } from '../university-list/university-list.comp
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, CommonModule, FormsModule, IonIcon, 
-    IonButton, IonSelect, IonSelectOption, IonCardSubtitle, IonCardTitle, IonCardHeader, UniversityListComponent],
+    IonButton, IonSelect, IonSelectOption, IonCardSubtitle, IonCardTitle, IonCardHeader, UniversityListComponent,
+    FooterComponent],
 })
 export class HomePage implements OnInit, OnDestroy {
   // Counter properties
