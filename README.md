@@ -1,0 +1,1 @@
+Welcome to the Unipply repository! This project is dedicated to providing a seamless and efficient way to manage and apply for university programs. Our goal is to simplify the application process for students and educational institutions alike.
