@@ -17,9 +17,9 @@ export const routes: Routes = [
           import('../universities/universities.page').then((m) => m.Universities),
       },
       {
-        path: 'about',
+        path: 'our-story',
         loadComponent: () =>
-          import('../about/about.page').then((m) => m.AboutUs),
+          import('../our-story/our-story.page').then((m) => m.OurStoryPage),
       },
       {
         path: 'profile',

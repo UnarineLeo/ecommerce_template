@@ -1,129 +1,191 @@
+ion-header {
+  position: sticky;
+  top: 0;
+  z-index: 1200;
+  backdrop-filter: blur(8px);
+}
+
 ion-toolbar {
-  --background: white;
+  --background: rgba(255, 255, 255, 0.9);
   --color: #1e3a5f;
-  --padding-top: 8px;
-  --padding-bottom: 8px;
-  --min-height: 64px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --min-height: 72px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 12px 30px -24px rgba(15, 23, 42, 0.55);
 }
 
-// Brand/Logo
+ion-button {
+  transition: all 0.25s ease;
+}
+
 .brand-button {
-  --padding-start: 0;
-  --padding-end: 0;
+  --padding-start: 8px;
+  --padding-end: 12px;
+  --border-radius: 999px;
+  --color: #0f172a;
   text-transform: none;
-  
-  .brand-icon {
-    font-size: 28px;
-    margin-right: 8px;
-    color: #1e40af;
-  }
-  
-  .brand-text {
-    font-size: 22px;
-    font-weight: 700;
-    color: #1e3a5f;
-    letter-spacing: -0.02em;
+  font-weight: 700;
+
+  &:hover {
+    --background: rgba(30, 64, 175, 0.08);
   }
 }
 
-// Desktop Navigation
+.brand-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.brand-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  letter-spacing: -0.02em;
+}
+
 .desktop-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
+  align-items: center;
   gap: 8px;
 
   ion-button {
-    --color: #374151;
-    --color-hover: #1e40af;
-    font-weight: 500;
-    font-size: 0.95rem;
+    --color: #475569;
+    --border-radius: 999px;
+    --padding-start: 14px;
+    --padding-end: 14px;
+    --background-hover: rgba(30, 64, 175, 0.08);
+    font-weight: 600;
+    font-size: 0.92rem;
     text-transform: none;
-    letter-spacing: 0.3px;
-    transition: all 0.3s ease;
+    letter-spacing: 0.2px;
 
     &:hover {
       --color: #1e40af;
     }
   }
+}
+
+.desktop-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
   .login-btn {
     --color: #1e40af;
-    --background-hover: rgba(30, 64, 175, 0.05);
-    margin-left: 8px;
+    --background-hover: rgba(30, 64, 175, 0.08);
+    --border-radius: 999px;
+    --padding-start: 14px;
+    --padding-end: 14px;
+    font-weight: 600;
+    text-transform: none;
   }
 
   .profile-btn {
-    --background: #1e40af;
-    --background-hover: #1e3a8a;
-    margin-left: 4px;
-    font-weight: 600;
+    --background: var(--ion-color-warning);
+    --background-hover: var(--ion-color-warning-shade);
+    --color: #1f2937;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    font-weight: 700;
+    text-transform: none;
+    box-shadow: 0 10px 20px -14px rgba(245, 158, 11, 0.9);
   }
 }
 
-// Mobile Navigation
 .mobile-nav {
   display: none;
 
   ion-button {
     --color: #1e3a5f;
-    font-size: 28px;
+    --background: rgba(30, 64, 175, 0.08);
+    --border-radius: 12px;
+    width: 42px;
+    height: 42px;
   }
 }
 
-// Mobile Menu Dropdown
 .mobile-menu {
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  top: calc(100% + 6px);
+  left: 12px;
+  right: 12px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 20px 30px -22px rgba(15, 23, 42, 0.55);
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
   opacity: 0;
-  z-index: 1000;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: max-height 0.28s ease, opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  z-index: 1300;
 
   &.open {
-    max-height: 400px;
+    max-height: 420px;
     opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   ion-list {
-    padding: 8px 0;
+    padding: 8px;
+    background: transparent;
   }
 
   ion-item {
-    --padding-start: 20px;
-    --inner-padding-end: 20px;
-    --min-height: 52px;
-    font-size: 1rem;
-    
+    --background: transparent;
+    --padding-start: 12px;
+    --inner-padding-end: 12px;
+    --border-radius: 12px;
+    --min-height: 50px;
+    margin-bottom: 4px;
+
     ion-icon {
-      font-size: 22px;
-      margin-right: 16px;
-      color: #6b7280;
+      font-size: 20px;
+      margin-right: 12px;
+      color: #64748b;
     }
 
     ion-label {
-      font-weight: 500;
-      color: #374151;
+      font-weight: 600;
+      color: #334155;
     }
 
     &:hover {
-      --background: #f3f4f6;
+      --background: rgba(30, 64, 175, 0.08);
+
+      ion-icon,
+      ion-label {
+        color: #1e40af;
+      }
     }
 
     &.menu-divider {
-      border-top: 1px solid #e5e7eb;
-      margin-top: 8px;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 6px;
       padding-top: 8px;
     }
   }
 }
 
-// Responsive Breakpoints
 @media (max-width: 992px) {
-  .desktop-nav {
+  ion-toolbar {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --min-height: 64px;
+  }
+
+  .desktop-nav,
+  .desktop-actions {
     display: none;
   }
 
@@ -131,66 +193,25 @@ ion-toolbar {
     display: flex;
   }
 
-  .brand-button {
-    .brand-icon {
-      font-size: 24px;
-      margin-right: 6px;
-    }
-    
-    .brand-text {
-      font-size: 18px;
-    }
+  .brand-logo {
+    width: 26px;
+    height: 26px;
+    margin-right: 8px;
+  }
+
+  .brand-text {
+    font-size: 1rem;
   }
 }
 
-// Tablet adjustments
-@media (max-width: 768px) and (min-width: 481px) {
-  ion-toolbar {
-    --padding-start: 12px;
-    --padding-end: 12px;
-  }
-}
-
-// Mobile adjustments
 @media (max-width: 480px) {
   ion-toolbar {
     --padding-start: 8px;
     --padding-end: 8px;
-    --min-height: 56px;
-  }
-
-  .brand-button {
-    .brand-icon {
-      font-size: 22px;
-      margin-right: 4px;
-      margin-left: 0 !important;
-    }
-    
-    .brand-text {
-      font-size: 16px;
-    }
   }
 
   .mobile-menu {
-    ion-item {
-      --padding-start: 16px;
-      --min-height: 48px;
-      font-size: 0.95rem;
-
-      ion-icon {
-        font-size: 20px;
-        margin-right: 12px;
-      }
-    }
+    left: 8px;
+    right: 8px;
   }
-}
-
-// Smooth transitions
-ion-button {
-  transition: all 0.2s ease;
-}
-
-// Fix for potential layout issues
-ion-header {
-  position: relative;
 }

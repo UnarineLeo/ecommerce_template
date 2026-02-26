@@ -3,12 +3,12 @@ import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/stan
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: 'about.page.html',
-  styleUrls: ['about.page.scss'],
+  selector: 'app-our-story',
+  templateUrl: 'our-story.page.html',
+  styleUrls: ['our-story.page.scss'],
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, ExploreContainerComponent]
 })
-export class AboutUs {
+export class OurStoryPage {
 
   constructor() {}
 
