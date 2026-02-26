@@ -9,6 +9,7 @@ import { IonIcon, IonFooter } from '@ionic/angular/standalone';
   imports: [IonFooter, IonIcon]
 })
 export class FooterComponent  implements OnInit {
+  readonly currentYear = new Date().getFullYear();
 
   constructor() { }
 
