@@ -13,7 +13,6 @@ ion-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   color: white;
   padding: 40px 20px;
 
@@ -21,6 +20,7 @@ ion-content {
     min-height: 100vh;
     background-attachment: scroll;
     padding: 60px 20px 40px;
+    text-align: center;
   }
 }
 
@@ -49,6 +49,7 @@ ion-content {
   margin-bottom: 24px;
   line-height: 1.2;
   letter-spacing: -0.02em;
+  text-align: left;
 
   @media (max-width: 1024px) {
     font-size: 2.8rem;
@@ -57,6 +58,7 @@ ion-content {
   @media (max-width: 768px) {
     font-size: 2.2rem;
     margin-bottom: 20px;
+    text-align: center;
   }
 
   @media (max-width: 480px) {
@@ -80,10 +82,12 @@ ion-content {
   opacity: 0.95;
   line-height: 1.7;
   font-weight: 300;
+  text-align: left;
 
   @media (max-width: 768px) {
     font-size: 1.1rem;
     margin-bottom: 36px;
+    text-align: center;
     br {
       display: none;
     }
@@ -98,11 +102,12 @@ ion-content {
 .hero-buttons {
   display: flex;
   gap: 16px;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 80px;
   flex-wrap: wrap;
 
   @media (max-width: 768px) {
+    justify-content: center;
     margin-bottom: 60px;
     gap: 12px;
   }
@@ -145,6 +150,52 @@ ion-content {
     --color: white;
     --background-hover: rgba(255, 255, 255, 0.1);
     --background-activated: rgba(255, 255, 255, 0.15);
+  }
+}
+
+// Hero Inner Layout (two columns: text left, Lottie right)
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap-reverse;
+
+  @media (max-width: 1024px) {
+    gap: 40px;
+  }
+
+  @media (max-width: 768px) {
+    gap: 30px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+.hero-lottie {
+  flex: 1;
+  min-width: 250px;
+  height: 400px;
+
+  @media (max-width: 1024px) {
+    height: 350px;
+  }
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
+
+  @media (max-width: 480px) {
+    height: 250px;
   }
 }
 
@@ -265,7 +316,7 @@ ion-content {
 
 // Search Section
 .search-section {
-  padding: 80px 20px;
+  padding: 10px 1px;
   background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
 
   @media (max-width: 768px) {
@@ -275,6 +326,125 @@ ion-content {
   @media (max-width: 480px) {
     padding: 40px 16px;
   }
+}
+
+.university-cards {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 20px 40px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: 0 16px 32px;
+  }
+}
+
+.university-spotlight-card {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 30px -18px rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: #ffffff;
+
+  ion-card-content {
+    padding: 20px 22px 24px;
+  }
+}
+
+.card-image {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.rank-badge {
+  background: rgba(30, 64, 175, 0.12);
+  color: #1e40af;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.card-location {
+  margin: 0 0 16px;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.card-metrics {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.metric {
+  display: grid;
+  gap: 4px;
+}
+
+.metric-label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+}
+
+.metric-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.card-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.learn-more-btn {
+  --border-color: #1e40af;
+  --color: #1e40af;
+  --background-hover: rgba(30, 64, 175, 0.08);
+  height: 44px;
+  font-weight: 600;
+  text-transform: none;
+  flex: 1;
+  min-width: 140px;
+}
+
+.apply-now-btn {
+  --background: #f59e0b;
+  --background-hover: #d97706;
+  --color: #1f2937;
+  height: 44px;
+  font-weight: 600;
+  text-transform: none;
+  flex: 1;
+  min-width: 140px;
 }
 
 .search-container {
@@ -498,18 +668,18 @@ ion-select-popover {
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  max-width: 1400px;
+  gap: 24px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px 40px;
 }
 
-.university-card {
-  position: relative;
-  overflow: hidden;
+.info-card {
+  border-radius: 14px;
   margin: 0;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 12px 22px -14px rgba(15, 23, 42, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: fadeInUp 0.6s ease-out forwards;
   opacity: 0;
   
@@ -522,19 +692,36 @@ ion-select-popover {
   &:nth-child(6) { animation-delay: 0.6s; }
   
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    
-    img {
-      transform: scale(1.08);
-    }
+    transform: translateY(-6px);
+    box-shadow: 0 18px 28px -14px rgba(15, 23, 42, 0.5);
   }
-  
-  img {
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+}
+
+.info-card-header {
+  text-align: center;
+  padding: 24px 20px 12px;
+}
+
+.info-icon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.info-card-title {
+  font-size: 1.1rem;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.info-card-content {
+  text-align: center;
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 0.96rem;
+  padding: 0 20px 22px;
 }
 
 @keyframes fadeInUp {
@@ -548,151 +735,6 @@ ion-select-popover {
   }
 }
 
-// Image overlay with university name and location
-.card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 200px;
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.overlay-content {
-  width: 100%;
-}
-
-.university-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: white;
-  margin: 0 0 6px 0;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.location {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: rgba(255,255,255,0.95);
-  font-size: 13px;
-  font-weight: 500;
-  
-  ion-icon {
-    font-size: 16px;
-  }
-}
-
-// Card header with stats
-ion-card-header {
-  padding: 16px 16px 12px 16px;
-}
-
-.card-stats {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.ranking {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  color: #2c3e50;
-  font-size: 14px;
-  
-  .star {
-    font-size: 16px;
-  }
-}
-
-.students {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #6b7280;
-  font-size: 14px;
-  
-  ion-icon {
-    font-size: 16px;
-  }
-}
-
-// Card content
-ion-card-content {
-  padding: 0 16px 16px 16px;
-}
-
-.programs-section {
-  margin-bottom: 12px;
-}
-
-.section-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: #6b7280;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin: 0 0 8px 0;
-}
-
-.program-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-ion-chip {
-  margin: 0;
-  height: 26px;
-  font-size: 11px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-  }
-}
-
-.deadline {
-  font-size: 13px;
-  color: #6b7280;
-  margin: 0 0 16px 0;
-  
-  .deadline-date {
-    color: #ef4444;
-    font-weight: 600;
-  }
-}
-
-.card-actions {
-  display: flex;
-  gap: 8px;
-  
-  ion-button {
-    flex: 1;
-    margin: 0;
-    font-weight: 600;
-    --border-radius: 8px;
-    font-size: 13px;
-    height: 40px;
-  }
-  
-  ion-button[fill="outline"] {
-    --border-width: 2px;
-  }
-}
-
 // Responsive breakpoints
 @media (max-width: 1200px) {
   .cards-grid {
@@ -703,39 +745,18 @@ ion-chip {
 @media (max-width: 768px) {
   .cards-grid {
     grid-template-columns: 1fr;
-    padding: 16px;
+    padding: 0 16px 32px;
     gap: 16px;
   }
-  
-  .university-card {
-    img {
-      height: 180px;
-    }
-  }
-  
-  .card-overlay {
-    height: 180px;
-  }
-  
-  .card-actions {
-    flex-direction: column;
-    
-    ion-button {
-      width: 100%;
-    }
+
+  .info-icon {
+    width: 46px;
+    height: 46px;
   }
 }
 
 @media (max-width: 480px) {
   .cards-grid {
-    padding: 12px;
-  }
-  
-  .university-name {
-    font-size: 18px;
-  }
-  
-  .location {
-    font-size: 12px;
+    padding: 0 12px 28px;
   }
 }

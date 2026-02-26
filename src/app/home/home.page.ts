@@ -1,12 +1,27 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonCardContent, IonButton, IonSelect, 
  IonSelectOption, IonCardSubtitle, IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { UniversityListComponent } from '../university-list/university-list.component';
 import { FooterComponent } from '../footer/footer.component';
+import universitiesData from '../university-list/university-list.json';
+
+type University = {
+  id: number;
+  name: string;
+  suburb: string;
+  province: string;
+  logo: string;
+  fields: string[];
+  image: string;
+  students: number;
+  rating: number;
+  openingDate: string;
+  closingDate: string;
+  link: string;
+};
 
 @Component({
   selector: 'app-home',
@@ -14,17 +29,19 @@ import { FooterComponent } from '../footer/footer.component';
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, CommonModule, FormsModule, IonIcon, 
-    IonButton, IonSelect, IonSelectOption, IonCardSubtitle, IonCardTitle, IonCardHeader, UniversityListComponent,
+    IonButton, IonSelect, IonSelectOption, IonCardSubtitle, IonCardTitle, IonCardHeader,
     FooterComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePage implements OnInit, OnDestroy {
+  featuredUniversities: University[] = (universitiesData as University[]).slice(0, 6);
   // Counter properties
   currentUniversities: number = 0;
   currentStudents: number = 0;
   currentSuccessRate: number = 0;
-  targetUniversities: number = 26;
-  targetStudents: number = 10;
-  targetSuccessRate: number = 95;
+  targetUniversities: number = 12;
+  targetStudents: number = 1000;
+  targetSuccessRate: number = 90;
   private animationInterval: any;
 
   // Search properties
@@ -164,6 +181,13 @@ export class HomePage implements OnInit, OnDestroy {
     return province ? province.label : '';
   }
 
+  formatPrograms(fields: string[]): string {
+    return fields
+      .map(field => this.getFieldLabel(field) || field.replace(/-/g, ' '))
+      .map(label => label.replace(/\b\w/g, char => char.toUpperCase()))
+      .join(', ');
+  }
+
   // Method to clear all filters
   clearFilters() {
     this.searchQuery = '';
@@ -173,32 +197,32 @@ export class HomePage implements OnInit, OnDestroy {
 
   moreinfo = [
     {
-      icon: 'heart',
+      iconFile: 'books.png',
       title: 'Centralized Applications',
       description: 'Learn more about Unipply and our mission to connect students with universities.'
     },
     {
-      icon: 'help-circle',
+      iconFile: 'track.png',
       title: 'Smart University Matching',
       description: 'Get assistance with your university applications and other inquiries.'    
     },
     {
-      icon: 'document-text',
+      iconFile: 'document.png',
       title: 'Real-time Tracking',
       description: 'Access guides, articles, and tools to help you navigate the university application process.'
     },
     { 
-      icon: 'megaphone',
+      iconFile: 'document.png',
       title: 'Document Verification',
       description: 'Stay updated with the latest news and announcements from Unipply.'
     },
     {
-      icon: 'people',
+      iconFile: 'people.png',
       title: 'Expert Guidance',
       description: 'Join our community of students and share your experiences and tips.'
     },
     {
-      icon: 'settings',
+      iconFile: 'shield.png',
       title: 'Secure & Trusted',
       description: 'Manage your account settings and preferences.'
     }

@@ -3,23 +3,26 @@
     <!-- Logo/Brand - Always visible -->
     <ion-buttons slot="start">
       <ion-button href="/tabs/home" class="brand-button">
-        <ion-icon name="school-outline" class="brand-icon"></ion-icon>
-        <span class="brand-text">UniApply</span>
+        <img src="assets/icon/favicon.ico" alt="UniApply Logo" class="brand-logo">
+        <span class="brand-text">Unipply</span>
       </ion-button>
     </ion-buttons>
 
     <!-- Desktop Navigation -->
-    <ion-buttons slot="end" class="desktop-nav">
+    <div class="desktop-nav">
       <ion-button fill="clear" href="/tabs/home">Home</ion-button>
       <ion-button fill="clear" href="/tabs/universities">Universities</ion-button>
       <ion-button fill="clear" href="/tabs/about">About us</ion-button>
-      
+    </div>
+
+    <!-- Desktop Actions -->
+    <ion-buttons slot="end" class="desktop-actions">
       <ion-button class="login-btn">
         <ion-icon slot="start" name="log-in-outline"></ion-icon>
         Log In
       </ion-button>
-      <ion-button color="primary" shape="round" href="/tabs/profile" class="profile-btn">
-        Profile
+      <ion-button color="warning" fill="solid" shape="round" href="/tabs/profile" class="profile-btn">
+        Register
       </ion-button>
     </ion-buttons>
 
@@ -56,7 +59,7 @@
       
       <ion-item button href="/tabs/profile" (click)="closeMenu()">
         <ion-icon slot="start" name="person-outline"></ion-icon>
-        <ion-label>Profile</ion-label>
+        <ion-label>Register</ion-label>
       </ion-item>
     </ion-list>
   </div>
