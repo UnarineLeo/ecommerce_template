@@ -1,17 +1,124 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title>Profile Settings</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <section class="profile-hero">
+    <div class="profile-hero-inner">
+      <p class="eyebrow">Account</p>
+      <h1>Manage Your Profile</h1>
+      <p class="hero-subtitle">
+        Update your personal details, keep your password secure, and refine your academic interests.
+      </p>
+    </div>
+  </section>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <section class="profile-shell">
+    <aside class="tab-nav" aria-label="Profile sections">
+      <button
+        type="button"
+        class="tab-link"
+        [class.active]="activeTab === 'personal'"
+        (click)="setTab('personal')">
+        Personal Details
+      </button>
+      <button
+        type="button"
+        class="tab-link"
+        [class.active]="activeTab === 'password'"
+        (click)="setTab('password')">
+        Change Password
+      </button>
+      <button
+        type="button"
+        class="tab-link"
+        [class.active]="activeTab === 'education'"
+        (click)="setTab('education')">
+        Educational Details
+      </button>
+    </aside>
+
+    <div class="tab-content">
+      @if (activeTab === 'personal') {
+        <section class="panel">
+          <h2>Personal Details</h2>
+          <p class="panel-subtitle">Keep your personal information up to date.</p>
+
+          <div class="form-grid">
+            <label class="field">
+              <span>First Name</span>
+              <input type="text" value="Leo" />
+            </label>
+            <label class="field">
+              <span>Last Name</span>
+              <input type="text" value="Unarine" />
+            </label>
+            <label class="field full">
+              <span>Email Address</span>
+              <input type="email" value="leo@example.com" />
+            </label>
+            <label class="field full">
+              <span>Phone Number</span>
+              <input type="tel" value="+27 71 000 0000" />
+            </label>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn primary">Save Changes</button>
+          </div>
+        </section>
+      }
+
+      @if (activeTab === 'password') {
+        <section class="panel">
+          <h2>Change Password</h2>
+          <p class="panel-subtitle">Use a strong password that you do not reuse elsewhere.</p>
+
+          <div class="form-grid one-column">
+            <label class="field full">
+              <span>Current Password</span>
+              <input type="password" placeholder="Enter current password" />
+            </label>
+            <label class="field full">
+              <span>New Password</span>
+              <input type="password" placeholder="Enter new password" />
+            </label>
+            <label class="field full">
+              <span>Confirm New Password</span>
+              <input type="password" placeholder="Confirm new password" />
+            </label>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn primary">Update Password</button>
+          </div>
+        </section>
+      }
+
+      @if (activeTab === 'education') {
+        <section class="panel">
+          <h2>Educational Details</h2>
+          <p class="panel-subtitle">Select the study areas you are most interested in.</p>
+
+          <div class="interest-grid">
+            @for (interest of interests; track interest) {
+              <button
+                type="button"
+                class="interest-chip"
+                [class.selected]="selectedInterests.includes(interest)"
+                (click)="toggleInterest(interest)">
+                {{ interest }}
+              </button>
+            }
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn primary">Save Interests</button>
+          </div>
+        </section>
+      }
+    </div>
+  </section>
 </ion-content>
