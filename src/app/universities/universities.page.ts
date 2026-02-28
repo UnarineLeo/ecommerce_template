@@ -1,6 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import universitiesData from '../university-list/university-list.json';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, IonButton,
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption,
  } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
@@ -14,7 +14,7 @@ import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard, 
-    IonCardContent, IonButton, FormsModule],
+    IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption, FormsModule],
 })
 export class Universities {
   featuredUniversities: University[] = (universitiesData as University[])
@@ -84,5 +84,11 @@ export class Universities {
     });
 
     await alert.present();
+  }
+
+  clearFilters() {
+    this.searchQuery = '';
+    this.selectedField = '';
+    this.selectedProvince = '';
   }
 }
