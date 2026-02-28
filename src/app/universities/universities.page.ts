@@ -3,24 +3,9 @@ import universitiesData from '../university-list/university-list.json';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, IonButton,
  } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
-import { IonSelectOption } from '@ionic/angular/standalone';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
-type University = {
-  id: number;
-  name: string;
-  suburb: string;
-  province: string;
-  logo: string;
-  fields: string[];
-  image: string;
-  students: number;
-  rating: number;
-  openingDate: string;
-  closingDate: string;
-  link: string;
-};
+import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
 
 @Component({
   selector: 'app-universities',
@@ -39,18 +24,7 @@ export class Universities {
   selectedProvince: string = '';
 
   // Provinces Array
-  provinces = [
-    { value: '', label: 'All Provinces' },
-    { value: 'western-cape', label: 'Western Cape' },
-    { value: 'gauteng', label: 'Gauteng' },
-    { value: 'kwazulu-natal', label: 'KwaZulu-Natal' },
-    { value: 'eastern-cape', label: 'Eastern Cape' },
-    { value: 'free-state', label: 'Free State' },
-    { value: 'limpopo', label: 'Limpopo' },
-    { value: 'mpumalanga', label: 'Mpumalanga' },
-    { value: 'north-west', label: 'North West' },
-    { value: 'northern-cape', label: 'Northern Cape' }
-  ];
+  provinces = PROVINCES;
   
   constructor(private router: Router,
     private alertController: AlertController) {}
@@ -67,20 +41,7 @@ export class Universities {
     return field ? field.label : '';
   }
 
-  studyFields = [
-    { value: '', label: 'All Fields' },
-    { value: 'engineering', label: 'Engineering' },
-    { value: 'medicine', label: 'Medicine & Health Sciences' },
-    { value: 'business', label: 'Business & Commerce' },
-    { value: 'law', label: 'Law' },
-    { value: 'arts', label: 'Arts & Humanities' },
-    { value: 'science', label: 'Natural Sciences' },
-    { value: 'social', label: 'Social Sciences' },
-    { value: 'education', label: 'Education' },
-    { value: 'it', label: 'Information Technology' },
-    { value: 'agriculture', label: 'Agriculture' },
-    { value: 'architecture', label: 'Architecture & Built Environment' }
-  ];
+  studyFields = STUDY_FIELDS;
 
     searchUniversities() {
     // Validate that at least one search criteria is provided
