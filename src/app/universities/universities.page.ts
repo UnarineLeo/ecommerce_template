@@ -1,4 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import universitiesData from '../university-list/university-list.json';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption,
  } from '@ionic/angular/standalone';
@@ -14,7 +15,7 @@ import { PROVINCES, STUDY_FIELDS, University } from '../shared/app-data';
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard, 
-    IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption, FormsModule],
+    IonCardContent, IonButton, IonIcon, IonSelect, IonSelectOption, FormsModule, CommonModule],
 })
 export class Universities {
   featuredUniversities: University[] = (universitiesData as University[])

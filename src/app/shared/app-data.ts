@@ -45,3 +45,16 @@ export const PROVINCES: SelectOption[] = [
   { value: 'north-west', label: 'North West' },
   { value: 'northern-cape', label: 'Northern Cape' }
 ];
+
+export const STUDY_LEVELS: SelectOption[] = [
+  { value: 'high-school', label: 'High School Learner' },
+  { value: 'gap-year', label: 'Gap Year' },
+  { value: 'undergraduate', label: 'Undergraduate Student' },
+  { value: 'postgraduate', label: 'Postgraduate Student' },
+  { value: 'working-professional', label: 'Working Professional' },
+  { value: 'other', label: 'Other' }
+];
+
+export const INTEREST_OPTIONS: SelectOption[] = STUDY_FIELDS
+  .filter((item) => item.value !== '')
+  .map((item) => ({ value: item.value, label: item.label }));
