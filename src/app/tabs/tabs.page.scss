@@ -78,6 +78,50 @@ ion-button {
   align-items: center;
   gap: 8px;
 
+  .nav-link {
+    --color: #475569;
+    --border-radius: 999px;
+    --padding-start: 14px;
+    --padding-end: 14px;
+    --background-hover: rgba(30, 64, 175, 0.08);
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-transform: none;
+    letter-spacing: 0.2px;
+    position: relative;
+
+    &::part(native) {
+      position: relative;
+      overflow: visible;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: -6px;
+      height: 2px;
+      border-radius: 999px;
+      background: #1e40af;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.25s ease;
+    }
+
+    &:hover {
+      --color: #1e40af;
+    }
+
+    &.active-tab {
+      --color: #1e40af;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
   .login-btn {
     --color: #1e40af;
     --background-hover: rgba(30, 64, 175, 0.08);
@@ -162,6 +206,16 @@ ion-button {
 
     &:hover {
       --background: rgba(30, 64, 175, 0.08);
+
+      ion-icon,
+      ion-label {
+        color: #1e40af;
+      }
+    }
+
+    &.active-mobile-tab {
+      --background: rgba(30, 64, 175, 0.12);
+      border-left: 3px solid #1e40af;
 
       ion-icon,
       ion-label {

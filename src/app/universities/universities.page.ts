@@ -1,6 +1,7 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import universitiesData from '../university-list/university-list.json';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonCardContent, IonButton, IonSelect, IonCardSubtitle, IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, IonButton,
+ } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { IonSelectOption } from '@ionic/angular/standalone';
 import { AlertController } from '@ionic/angular';
@@ -28,7 +29,7 @@ type University = {
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard, 
-    IonCardContent, IonButton, IonCardSubtitle, IonCardTitle, IonCardHeader, IonIcon, IonSelect, IonSelectOption, FormsModule],
+    IonCardContent, IonButton, FormsModule],
 })
 export class Universities {
   featuredUniversities: University[] = (universitiesData as University[])

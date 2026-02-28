@@ -2,7 +2,7 @@
   <ion-toolbar>
     <!-- Logo/Brand - Always visible -->
     <ion-buttons slot="start">
-      <ion-button href="/tabs/home" class="brand-button">
+      <ion-button routerLink="/tabs/home" class="brand-button">
         <img src="assets/icon/favicon.ico" alt="UniApply Logo" class="brand-logo">
         <span class="brand-text">Unipply</span>
       </ion-button>
@@ -12,14 +12,14 @@
 
     <!-- Desktop Actions -->
     <ion-buttons slot="end" class="desktop-actions">
-      <ion-button fill="clear" href="/tabs/home">Home</ion-button>
-      <ion-button fill="clear" href="/tabs/universities">Universities</ion-button>
-      <ion-button fill="clear" href="/tabs/our-story">Our Story</ion-button>
+      <ion-button fill="clear" routerLink="/tabs/home" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Home</ion-button>
+      <ion-button fill="clear" routerLink="/tabs/universities" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Universities</ion-button>
+      <ion-button fill="clear" routerLink="/tabs/our-story" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Our Story</ion-button>
       <ion-button class="login-btn">
         <ion-icon slot="start" name="log-in-outline"></ion-icon>
         Log In
       </ion-button>
-      <ion-button color="warning" fill="solid" shape="round" href="/tabs/profile" class="profile-btn">
+      <ion-button color="warning" fill="solid" shape="round" routerLink="/tabs/profile" class="profile-btn">
         Register
       </ion-button>
     </ion-buttons>
@@ -35,17 +35,17 @@
   <!-- Mobile Menu Dropdown -->
   <div class="mobile-menu" [class.open]="menuOpen">
     <ion-list>
-      <ion-item button href="/tabs/home" (click)="closeMenu()">
+      <ion-item button routerLink="/tabs/home" routerLinkActive="active-mobile-tab" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
         <ion-icon slot="start" name="home-outline"></ion-icon>
         <ion-label>Home</ion-label>
       </ion-item>
       
-      <ion-item button href="/tabs/universities" (click)="closeMenu()">
+      <ion-item button routerLink="/tabs/universities" routerLinkActive="active-mobile-tab" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
         <ion-icon slot="start" name="school-outline"></ion-icon>
         <ion-label>Universities</ion-label>
       </ion-item>
       
-      <ion-item button href="/tabs/our-story" (click)="closeMenu()">
+      <ion-item button routerLink="/tabs/our-story" routerLinkActive="active-mobile-tab" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
         <ion-icon slot="start" name="information-circle-outline"></ion-icon>
         <ion-label>Our Story</ion-label>
       </ion-item>
@@ -55,7 +55,7 @@
         <ion-label>Log In</ion-label>
       </ion-item>
       
-      <ion-item button href="/tabs/profile" (click)="closeMenu()">
+      <ion-item button routerLink="/tabs/profile" routerLinkActive="active-mobile-tab" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
         <ion-icon slot="start" name="person-outline"></ion-icon>
         <ion-label>Register</ion-label>
       </ion-item>

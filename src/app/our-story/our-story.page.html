@@ -1,17 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      About Us
+      Our story
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">About Us</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Our Story<br>
+          </h1>
+        </div>
 
-  <app-explore-container name="About Us page"></app-explore-container>
+        <!-- Lottie Animation -->
+         
+        <div class="hero-lottie">
+          
+        <dotlottie-player
+          src="../../assets/lottiefiles/globe.json"
+          autoplay
+          loop
+          style="width: 100%; height: 100%;">
+        </dotlottie-player>
+      </div>
+
+    </div>
+  </div>
 </ion-content>

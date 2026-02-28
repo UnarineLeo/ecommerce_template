@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, CUSTOM_ELEMENTS_SCHEMA } from '@angular/c
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon, IonCard, IonCardContent, IonButton, IonSelect, 
- IonSelectOption, IonCardSubtitle, IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
+ IonSelectOption, IonCardTitle, IonCardHeader } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { FooterComponent } from '../footer/footer.component';
@@ -29,7 +29,7 @@ type University = {
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardContent, CommonModule, FormsModule, IonIcon, 
-    IonButton, IonSelect, IonSelectOption, IonCardSubtitle, IonCardTitle, IonCardHeader,
+    IonButton, IonSelect, IonSelectOption, IonCardTitle, IonCardHeader,
     FooterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
