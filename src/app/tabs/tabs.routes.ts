@@ -27,6 +27,11 @@ export const routes: Routes = [
           import('../profile/profile.page').then((m) => m.ProfilePage),
       },
       {
+        path: 'contact-us',
+        loadComponent: () =>
+          import('../contact-us/contact-us.page').then((m) => m.ContactUsPage),
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full',
