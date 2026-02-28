@@ -27,7 +27,7 @@ export class HomePage implements OnInit, OnDestroy {
   currentSuccessRate: number = 0;
   targetUniversities: number = 12;
   targetStudents: number = 1000;
-  targetSuccessRate: number = 90;
+  targetSuccessRate: number = 99.8;
   private animationInterval: any;
 
   // Search properties
