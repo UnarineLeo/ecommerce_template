@@ -1,0 +1,78 @@
+<ion-content [fullscreen]="true">
+  <section class="item-hero">
+    <div class="item-hero-inner">
+      <h1>Item Details</h1>
+      <p>View full product information, pricing, and add your preferred items to cart.</p>
+    </div>
+  </section>
+
+  @if (product) {
+    <section class="item-shell">
+      <a routerLink="/tabs/home" class="back-link">← Back to Home</a>
+
+      <article class="item-layout">
+        <div class="image-wrap">
+          @if (product.originalPrice && product.originalPrice > product.price) {
+            <span class="discount-badge">-{{ getDiscount(product) }}%</span>
+          }
+
+          <img [src]="selectedImage" [alt]="product.name" class="item-image" (click)="expandImage()" />
+
+          <button type="button" class="expand-btn" (click)="expandImage()" aria-label="Expand image">⤢</button>
+
+          <div class="thumb-row">
+            @for (image of galleryImages; track image) {
+              <button
+                type="button"
+                class="thumb-btn"
+                [class.active]="image === selectedImage"
+                (click)="selectImage(image)">
+                <img [src]="image" [alt]="product.name + ' angle'" />
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="item-content">
+          <p class="item-category">{{ product.category }}</p>
+          <h1>{{ product.name }}</h1>
+          <p class="item-description">{{ product.description }}</p>
+
+          <div class="price-row">
+            <p class="item-price">{{ formatRand(product.price) }}</p>
+            @if (product.originalPrice && product.originalPrice > product.price) {
+              <p class="item-original-price">{{ formatRand(product.originalPrice) }}</p>
+            }
+          </div>
+
+          <ion-button color="primary" shape="round" (click)="addToCart(product)">Add to Cart</ion-button>
+        </div>
+      </article>
+
+      <section class="recommended">
+        <h2>Recommended for You</h2>
+        <div class="recommended-grid">
+          @for (item of recommendedItems; track item.id) {
+            <article class="rec-card" (click)="openRecommendedItem(item.id)">
+              <img [src]="item.image" [alt]="item.name" class="rec-image" />
+              <div class="rec-info">
+                <h3>{{ item.name }}</h3>
+                <p class="rec-price">{{ formatRand(item.price) }}</p>
+                <ion-button size="small" fill="outline" (click)="addRecommendedToCart(item, $event)">+ Add</ion-button>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+    </section>
+
+    @if (isImageExpanded) {
+      <div class="image-overlay" (click)="closeExpandedImage()">
+        <button type="button" class="close-overlay" (click)="closeExpandedImage()" aria-label="Close image">✕</button>
+        <img [src]="selectedImage" [alt]="product.name" class="expanded-image" (click)="$event.stopPropagation()" />
+      </div>
+    }
+  }
+
+  <app-footer></app-footer>
+</ion-content>

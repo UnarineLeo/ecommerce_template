@@ -1,0 +1,83 @@
+<ion-content [fullscreen]="true">
+  <section
+    class="hero-carousel"
+    aria-label="Featured promotions"
+    aria-roledescription="carousel"
+    (mouseenter)="pauseAutoplay()"
+    (mouseleave)="resumeAutoplay()"
+    (focusin)="pauseAutoplay()"
+    (focusout)="resumeAutoplay()">
+    @for (slide of heroSlides; track slide.title; let i = $index) {
+      <article class="hero-slide" [class.active]="i === currentSlideIndex">
+        <div class="hero-content">
+          <h1>{{ slide.title }}</h1>
+          <p>{{ slide.subtitle }}</p>
+          <ion-button shape="round" color="primary">{{ slide.cta }}</ion-button>
+        </div>
+      </article>
+    }
+
+    <button class="nav-btn prev" type="button" (click)="prevSlide()" aria-label="Previous slide">‹</button>
+    <button class="nav-btn next" type="button" (click)="nextSlide()" aria-label="Next slide">›</button>
+
+    <p class="slide-status" aria-live="polite">
+      {{ currentSlideIndex + 1 }} / {{ heroSlides.length }}
+    </p>
+
+    <div class="dots">
+      @for (slide of heroSlides; track slide.title; let i = $index) {
+        <button
+          type="button"
+          class="dot"
+          [class.active]="i === currentSlideIndex"
+          (click)="goToSlide(i)"
+          [attr.aria-current]="i === currentSlideIndex"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"></button>
+      }
+    </div>
+  </section>
+
+  <section class="categories">
+    <h2>Shop by Category</h2>
+
+    @for (category of categorySections; track category.name) {
+      <div class="category-block">
+        <h3>{{ category.name }}</h3>
+        <div class="item-grid">
+          @for (item of category.items; track item.id) {
+            <article
+              class="item-card"
+              role="button"
+              tabindex="0"
+              (click)="openItem(item.id)"
+              (keydown.enter)="openItem(item.id)"
+              (keydown.space)="openItem(item.id)">
+              @if (item.originalPrice && item.originalPrice > item.price) {
+                <span class="discount-badge">-{{ getDiscountPercent(item) }}%</span>
+              }
+              <button
+                type="button"
+                class="add-btn"
+                (click)="addToCart(item, $event)"
+                [attr.aria-label]="'Add ' + item.name + ' to cart'">
+                +
+              </button>
+              <img [src]="item.image" [alt]="item.name" class="item-image" loading="lazy" />
+              <div class="item-info">
+                <p class="item-name">{{ item.name }}</p>
+                <div class="price-row">
+                  <p class="item-price">{{ formatRand(item.price) }}</p>
+                  @if (item.originalPrice && item.originalPrice > item.price) {
+                    <p class="item-original-price">{{ formatRand(item.originalPrice) }}</p>
+                  }
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    }
+  </section>
+
+  <app-footer></app-footer>
+</ion-content>

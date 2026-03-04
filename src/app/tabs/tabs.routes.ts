@@ -9,7 +9,7 @@ export const routes: Routes = [
       {
         path: 'home',
         loadComponent: () =>
-          import('../shop/shop.page').then((m) => m.ShopPage),
+          import('../home/home.page').then((m) => m.HomePage),
       },
       {
         path: 'shop',
@@ -35,6 +35,11 @@ export const routes: Routes = [
         path: 'contact-us',
         loadComponent: () =>
           import('../contact-us/contact-us.page').then((m) => m.ContactUsPage),
+      },
+      {
+        path: 'item/:id',
+        loadComponent: () =>
+          import('../item/item.page').then((m) => m.ItemPage),
       },
       {
         path: '',
