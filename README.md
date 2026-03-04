@@ -1,1 +1,1 @@
-Welcome to the Unipply repository! This project is dedicated to providing a seamless and efficient way to manage and apply for university programs. Our goal is to simplify the application process for students and educational institutions alike.
+Welcome to the ecommerce_template repository! This project provides a starting point for building a modern ecommerce experience with Ionic and Angular.

@@ -10,7 +10,7 @@
       <p class="eyebrow">Account</p>
       <h1>Manage Your Profile</h1>
       <p class="hero-subtitle">
-        Update your personal details, keep your password secure, and refine your academic interests.
+        Update your personal details, keep your password secure, and manage your saved address.
       </p>
     </div>
   </section>
@@ -34,9 +34,9 @@
       <button
         type="button"
         class="tab-link"
-        [class.active]="activeTab === 'education'"
-        (click)="setTab('education')">
-        Educational Details
+        [class.active]="activeTab === 'address'"
+        (click)="setTab('address')">
+        Address
       </button>
     </aside>
 
@@ -97,25 +97,36 @@
         </section>
       }
 
-      @if (activeTab === 'education') {
+      @if (activeTab === 'address') {
         <section class="panel">
-          <h2>Educational Details</h2>
-          <p class="panel-subtitle">Select the study areas you are most interested in.</p>
+          <h2>Address</h2>
+          <p class="panel-subtitle">Keep your delivery address up to date.</p>
 
-          <div class="interest-grid">
-            @for (interest of interests; track interest) {
-              <button
-                type="button"
-                class="interest-chip"
-                [class.selected]="selectedInterests.includes(interest)"
-                (click)="toggleInterest(interest)">
-                {{ interest }}
-              </button>
-            }
+          <div class="form-grid">
+            <label class="field full">
+              <span>Street Address</span>
+              <input type="text" placeholder="123 Main Street" />
+            </label>
+            <label class="field">
+              <span>City</span>
+              <input type="text" placeholder="Cape Town" />
+            </label>
+            <label class="field">
+              <span>Province</span>
+              <input type="text" placeholder="Western Cape" />
+            </label>
+            <label class="field">
+              <span>Postal Code</span>
+              <input type="text" placeholder="8001" />
+            </label>
+            <label class="field">
+              <span>Country</span>
+              <input type="text" placeholder="South Africa" />
+            </label>
           </div>
 
           <div class="actions">
-            <button type="button" class="btn primary">Save Interests</button>
+            <button type="button" class="btn primary">Save Address</button>
           </div>
         </section>
       }

@@ -8,31 +8,9 @@ import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/stan
   imports: [IonHeader, IonToolbar, IonTitle, IonContent],
 })
 export class ProfilePage {
-  activeTab: 'personal' | 'password' | 'education' = 'personal';
+  activeTab: 'personal' | 'password' | 'address' = 'personal';
 
-  interests = [
-    'Engineering',
-    'Medicine & Health Sciences',
-    'Business & Commerce',
-    'Law',
-    'Arts & Humanities',
-    'Natural Sciences',
-    'Education',
-    'Information Technology'
-  ];
-
-  selectedInterests: string[] = ['Information Technology', 'Business & Commerce'];
-
-  setTab(tab: 'personal' | 'password' | 'education') {
+  setTab(tab: 'personal' | 'password' | 'address') {
     this.activeTab = tab;
-  }
-
-  toggleInterest(interest: string) {
-    if (this.selectedInterests.includes(interest)) {
-      this.selectedInterests = this.selectedInterests.filter(item => item !== interest);
-      return;
-    }
-
-    this.selectedInterests = [...this.selectedInterests, interest];
   }
 }
