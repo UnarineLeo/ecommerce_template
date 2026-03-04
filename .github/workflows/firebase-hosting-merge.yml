@@ -15,6 +15,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_UNIPPLY_AE61A }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ECOMMERCE_TEMPLATE_260304 }}
           channelId: live
-          projectId: unipply-ae61a
+          projectId: ecommerce-template-260304
